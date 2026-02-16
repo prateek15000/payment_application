@@ -53,9 +53,9 @@ public class JwtService {
         return generateToken(new HashMap<>() , userDetails);
     }
 
-    private Boolean isTokenValid(String token , UserDetails userDetails){
-        final String tokemUserEmail = extractEmail(token);
-        return ( tokemUserEmail.equals(userDetails.getUsername()) && !isTokenExpired(token) );
+    public Boolean isTokenValid(String token , UserDetails userDetails){
+        final String tokenUserEmail = extractEmail(token);
+        return ( tokenUserEmail.equals(userDetails.getUsername()) && !isTokenExpired(token) );
     }
 
     private Boolean isTokenExpired(String token){
