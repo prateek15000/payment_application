@@ -52,6 +52,17 @@ public class JwtService {
     public String returnGeneratedToken(UserDetails userDetails){
         return generateToken(new HashMap<>() , userDetails);
     }
-    //add is token valid // expiration in a bit
 
+    private Boolean isTokenValid(String token , UserDetails userDetails){
+        final String tokemUserEmail = extractEmail(token);
+        return ( tokemUserEmail.equals(userDetails.getUsername()) && !isTokenExpired(token) );
+    }
+
+    private Boolean isTokenExpired(String token){
+        return expirationDate(token).before(new Date());
+    }
+
+    private Date expirationDate(String token){
+        return extractClaims(token , Claims::getExpiration);
+    }
 }
