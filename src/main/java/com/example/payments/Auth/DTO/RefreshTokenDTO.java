@@ -1,6 +1,6 @@
 package com.example.payments.Auth.DTO;
 
-public record refreshTokenDTO(
+public record RefreshTokenDTO(
         String token
 ) {
 }
