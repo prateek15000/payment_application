@@ -32,7 +32,7 @@ public class UserEnitiy implements UserDetails {
     @Column(
             name = "phone_number"
     )
-    private Integer userPhoneNumber;
+    private String userPhoneNumber;
     @Column(
             name = "password"
     )
